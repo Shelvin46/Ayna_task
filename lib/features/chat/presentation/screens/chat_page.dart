@@ -50,17 +50,18 @@ class _ChatPageState extends State<ChatPage> {
                   minWidth: 200,
                   maxWidth: 750,
                 ),
-                child: BlocConsumer<ChatBloc, ChatState>(
-                  listener: (context, state) {
-                    // TODO: implement listener
-                  },
-                  builder: (context, state) {
-                    if (state is ChatConnected) {
-                      messages = state.messages ?? [];
+                child: Column(
+                  children: [
+                    const ChatTitleWidget(),
+                    BlocConsumer<ChatBloc, ChatState>(
+                      listener: (context, state) {
+                        // TODO: implement listener
+                      },
+                      builder: (context, state) {
+                        if (state is ChatConnected) {
+                          messages = state.messages ?? [];
 
-                      return Column(
-                        children: [
-                          StreamBuilder<dynamic>(
+                          return StreamBuilder<dynamic>(
                               stream: state.webSocket,
                               builder: (context, snapshot) {
                                 log('snapshot: ${snapshot.data}');
@@ -76,7 +77,7 @@ class _ChatPageState extends State<ChatPage> {
                                 return Column(
                                   children: [
                                     10.heightBox,
-                                    const ChatTitleWidget(),
+
                                     10.heightBox,
                                     // write the code for grouped list view here
                                     MessageListView(messages: messages),
@@ -84,25 +85,25 @@ class _ChatPageState extends State<ChatPage> {
                                     10.heightBox,
                                   ],
                                 ).expanded();
-                              }),
-                          // text field and send button
-                          SendMessageWidget(),
-                        ],
-                      );
-                    } else if (state is ChatConnectionError) {
-                      return Center(
-                        child: Text(
-                          state.message,
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      );
-                    } else if (state is ConnectionLoadingState) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    return const SizedBox.shrink();
-                  },
+                              });
+                        } else if (state is ChatConnectionError) {
+                          return Center(
+                            child: Text(
+                              state.message,
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                          );
+                        } else if (state is ConnectionLoadingState) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                    SendMessageWidget(),
+                    20.heightBox,
+                  ],
                 )),
           ),
         ).paddingSymmetric(horizontal: 16),

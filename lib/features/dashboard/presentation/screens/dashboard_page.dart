@@ -96,6 +96,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           children: [
                             Text(
                               "Hi, ${state.userName}",
+                              maxLines: 2,
                               style: Theme.of(context).textTheme.headlineLarge,
                             ),
                             const Spacer(),
@@ -107,6 +108,9 @@ class _DashboardPageState extends State<DashboardPage> {
                                 locator<SharedPreferencesService>()
                                     .prefs
                                     .clear();
+                                // clear the local storage
+                                locator<HiveStorageService>()
+                                    .clearHiveStorage();
 
                                 // sign out the user from the firebase
                                 locator<FirebaseAuthenticationService>()
@@ -129,6 +133,9 @@ class _DashboardPageState extends State<DashboardPage> {
                               context.go('/login-screen');
                               // clear the shared preferences and sign out the user
                               locator<SharedPreferencesService>().prefs.clear();
+                              // clear the local storage
+                              locator<HiveStorageService>().clearHiveStorage();
+
                               // sign out the user from the firebase
                               locator<FirebaseAuthenticationService>()
                                   .signOut();

@@ -34,6 +34,13 @@ class HiveStorageService {
     }
   }
 
+// clear the hive storage
+
+  Future<void> clearHiveStorage() async {
+    await _userBox.clear();
+    await _messagesBox.clear();
+  }
+
   Future<void> deleteMessage(MessageModel model) async {
     await _messagesBox.delete(model.messageId);
   }
