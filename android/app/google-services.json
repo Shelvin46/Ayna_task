@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144365255659",
+    "project_id": "ayna-3d195",
+    "storage_bucket": "ayna-3d195.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144365255659:android:ac29033b8e82a8129a37ae",
+        "android_client_info": {
+          "package_name": "com.example.ayna_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbfmTaPbwR-tCS4BLVe_9Z0rMu5BvtZGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
