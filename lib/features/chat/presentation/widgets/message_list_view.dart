@@ -3,6 +3,11 @@ import 'package:ayna_task/features/chat/data/models/message_model/message_model.
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 
+///[MessageListView] is a stateful widget which returns a [GroupedListView] widget.
+///[MessageListView] contains a [GroupedListView] widget which displays the messages in a grouped list view.
+///[GroupedListView] widget groups the messages by date and displays them in a list view.
+///[GroupedListView] widget contains a [MessageModel] list and a [DateTime] groupBy parameter.
+///[MessageModel] list contains the messages to be displayed.
 class MessageListView extends StatefulWidget {
   const MessageListView({
     super.key,

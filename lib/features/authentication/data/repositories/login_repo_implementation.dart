@@ -44,7 +44,9 @@ class LoginRepoImplementation implements LoginRepo {
           return Right(entity);
         }
       }
-    } on FirebaseAuthException catch (e) {
+    }
+    // Handle exceptions
+    on FirebaseAuthException catch (e) {
       return Left(FirebaseAuthExceptionFailure.fromCode(e.code));
     } catch (e) {
       return Left(CustomExceptionHandler.handleException(e));

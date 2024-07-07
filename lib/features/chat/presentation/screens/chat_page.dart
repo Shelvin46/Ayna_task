@@ -38,6 +38,7 @@ class _ChatPageState extends State<ChatPage> {
       canPop: true,
       onPopInvoked: (didPop) {
         if (didPop) {
+          // disconnect the web socket when the user leaves the chat page
           context.read<ChatBloc>().add(DisconnectWebSocket());
         }
       },
@@ -58,9 +59,16 @@ class _ChatPageState extends State<ChatPage> {
                         // TODO: implement listener
                       },
                       builder: (context, state) {
+                        // check the state of the chat bloc
+                        // if the state is ChatConnected, then return the stream builder
+                        // to listen to the web socket
+                        // if the state is ChatConnectionError, then return the error message
+                        // if the state is ConnectionLoadingState, then return the loading indicator
+
                         if (state is ChatConnected) {
                           messages = state.messages ?? [];
 
+                          // return the stream builder to listen to the web socket
                           return StreamBuilder<dynamic>(
                               stream: state.webSocket,
                               builder: (context, snapshot) {

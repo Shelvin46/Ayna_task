@@ -16,6 +16,7 @@ import 'package:go_router/go_router.dart' as go_router;
 
 ///[LoginScreen] is the class to display the login screen.
 ///The login screen contains the email and password fields, ayna logo, login button and sign and sign up prompt.
+///
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -109,6 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // show the loading button
                 return const ButtonLoadingWidget();
               }
+              // show the login button
               return ButtonWidget(
                 buttonText: "Log in",
                 onTap: () {

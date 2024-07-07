@@ -5,6 +5,14 @@ import 'package:ayna_task/features/chat/data/models/user_model/user_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+///[HiveStorageService] is a class that handles the hive storage
+///It has methods to save and get the user id and messages
+///It has a method to get the last message listenable
+///It has a method to clear the hive storage
+///It has a method to delete a message
+///It has a method to get all messages
+///It has a method to save a message
+
 class HiveStorageService {
   Box<UserModel> get _userBox => Hive.box<UserModel>('userBox');
   Box<MessageModel> get _messagesBox => Hive.box<MessageModel>('messagesBox');

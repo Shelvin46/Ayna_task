@@ -1,9 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-/// [UserEntity] is a class that contains the user's email and password.
-/// It is used to pass the user's email and password to the [LoginBloc] when the user tries to login.
-/// It extends [Equatable] to compare the objects.
-
+/// [UserEntity] is a class that contains the user's email, name, password and token.
+/// It is used to represent the user's information.
 class UserEntity extends Equatable {
   final String name;
   final String email;

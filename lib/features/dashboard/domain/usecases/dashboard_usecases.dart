@@ -4,6 +4,10 @@ import 'package:ayna_task/features/dashboard/domain/repositories/dashboard_info_
 import 'package:ayna_task/service_locator.dart';
 import 'package:dartz/dartz.dart';
 
+/// [DashboardUseCases] is a class that contains the fetch dashboard info usecase.
+/// It takes a [UserEntity] object and calls [DashboardInfoRepo] to get the dashboard info.
+/// It returns [Either<Failure, String>]
+/// If the process is successful, it returns [Right<String>]
 class DashboardUseCases {
   Future<Either<Failure, String>> executeGetDashboardInfo(
       UserEntity userEntity) async {

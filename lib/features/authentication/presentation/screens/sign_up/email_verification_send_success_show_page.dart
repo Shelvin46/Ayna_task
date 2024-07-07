@@ -21,6 +21,7 @@ class _EmailVerificationSendSuccessShowPageState
     return BaseWidget(
       child: Column(
         children: [
+          //This is an animated check circle icon it indicates successful sign up.
           TweenAnimationBuilder<double>(
             curve: Curves.bounceOut,
             tween: Tween<double>(begin: 50, end: 200),

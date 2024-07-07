@@ -3,6 +3,7 @@ import 'package:ayna_task/core/constants/image_url_constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+///[ChatTitleWidget] is a stateless widget which is used to display the chat title.
 class ChatTitleWidget extends StatelessWidget {
   const ChatTitleWidget({
     super.key,

@@ -21,6 +21,7 @@ import 'package:intl/intl.dart';
 ///It uses [DashboardInfoBloc] to get the user name
 ///It uses [ChatTile] to show the chat list
 ///It uses [HoverText] to show the logout button
+///
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
@@ -32,6 +33,7 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   void initState() {
     super.initState();
+    // check if the user is logged in
     WidgetsBinding.instance.addPostFrameCallback((_) {
       locator<FirebaseAuthenticationService>().initialize().onData(
         (data) {
@@ -146,6 +148,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     },
                   ),
                   50.heightBox,
+                  // show the chat list
                   ValueListenableBuilder(
                     valueListenable: locator<HiveStorageService>()
                             .getLastMessageListenable() ??
@@ -176,6 +179,7 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
+  ///[buildChatList] is a method to build the chat list using the [ListView.separated] widget
   Widget buildChatList(
       BuildContext context, String message, String formattedTime) {
     return ListView.separated(
@@ -187,6 +191,7 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
+  ///[buildChatTile] is a method to build the chat tile using the [ChatTile] widget
   Widget buildChatTile(
       BuildContext context, String message, String formattedTime) {
     return GestureDetector(

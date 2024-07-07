@@ -23,7 +23,7 @@ import 'package:go_router/go_router.dart' as go_router;
 ///It has a [initState] method to initialize the [TextEditingController].
 ///It has a [dispose] method to dispose the [TextEditingController] and [GlobalKey].
 ///It has a [build] method to build the UI of the sign up page.
-///
+
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -49,6 +49,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.initState();
   }
 
+  // text form fields
   late final textFormFields = [
     CustomTextFormField(
       controller: fullNameController,
@@ -142,6 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
               },
               builder: (context, state) {
                 if (state is SignUpLoading) {
+                  // show the loading button
                   return const ButtonLoadingWidget();
                 }
                 return ButtonWidget(

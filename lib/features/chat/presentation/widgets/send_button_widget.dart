@@ -3,6 +3,11 @@ import 'package:ayna_task/features/chat/presentation/blocs/chat/chat_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+///[SendMessageWidget] is a stateless widget which is used to send a message.
+///[SendMessageWidget] contains a [TextField] widget and an [IconButton] widget.
+///[TextField] widget is used to type a message.
+///[IconButton] widget is used to send the message.
+
 class SendMessageWidget extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
   SendMessageWidget({

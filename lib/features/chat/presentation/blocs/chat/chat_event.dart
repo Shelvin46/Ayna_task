@@ -18,7 +18,7 @@ class ConnectToWebSocket extends ChatEvent {
   List<Object> get props => [];
 }
 
-final class MessageSendEvent extends ChatEvent {
+class MessageSendEvent extends ChatEvent {
   final String message;
 
   const MessageSendEvent({

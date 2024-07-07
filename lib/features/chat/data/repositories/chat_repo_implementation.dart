@@ -18,7 +18,9 @@ class ChatRepoImplementation implements ChatRepo {
       final url = Uri.parse('wss://echo.websocket.org/');
       final WebSocketChannel webSocket = HtmlWebSocketChannel.connect(url);
       return Right(webSocket);
-    } catch (e) {
+    }
+    // Handle the exceptions
+    catch (e) {
       return Left(CustomExceptionHandler.handleException(e));
     }
   }

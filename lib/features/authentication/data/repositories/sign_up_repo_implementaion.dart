@@ -7,24 +7,31 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+///[SignUpRepoImplementation] is a class that implements [SignUpRepo]
+///It has a method [signUp] that takes a [UserEntity] object and returns [Either<Failure, UserEntity>]
+///If the sign up is successful, it returns [Right<UserEntity>]
+///If the sign up fails, it returns [Left<Failure>]
 class SignUpRepoImplementation implements SignUpRepo {
   @override
   Future<Either<Failure, UserEntity>> signUp(UserEntity userEntity) async {
     try {
+      // Attempt to create a user with email and password in firebase
       // ignore: unused_local_variable
       UserCredential userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: userEntity.email,
         password: userEntity.password,
       );
-
+      // If the user is not verified, send a verification email
       final user = FirebaseAuth.instance.currentUser;
       if (user != null && !user.emailVerified) {
         await user.sendEmailVerification();
       }
 
       return Right(userEntity);
-    } on FirebaseAuthException catch (e) {
+    }
+    // Handle exceptions
+    on FirebaseAuthException catch (e) {
       return Left(FirebaseAuthExceptionFailure.fromCode(e.code));
     } catch (e) {
       return Left(CustomExceptionHandler.handleException(e));

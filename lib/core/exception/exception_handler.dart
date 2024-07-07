@@ -3,6 +3,10 @@ import 'dart:io';
 
 import 'package:ayna_task/core/failures/failures.dart';
 
+///[CustomExceptionHandler] is a class that handles exceptions and returns a [Failure] object
+///It has a static method [handleException] that takes an exception and returns a [Failure] object
+///It checks the type of the exception and returns a specific [Failure] object
+///
 class CustomExceptionHandler implements Exception {
   static Failure handleException(e) {
     if (e is TimeoutException) {
@@ -28,6 +32,10 @@ class CustomExceptionHandler implements Exception {
     }
   }
 }
+
+///[FirebaseAuthExceptionFailure] is a class that extends [Failure] class
+///It has a constructor that takes a message
+///It has a static method [fromCode] that takes a code and returns a specific [Failure] object
 
 class FirebaseAuthExceptionFailure extends Failure {
   const FirebaseAuthExceptionFailure({required super.message});

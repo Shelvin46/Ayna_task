@@ -6,10 +6,6 @@ import 'package:dartz/dartz.dart';
 
 ///[SignUpUseCases] is a class that executes the sign up process
 ///It takes a [UserEntity] object and calls [SignUpRepo] to sign up the user
-///It returns [Either<Failure, UserEntity>]
-///If the sign up is successful, it returns [Right<UserEntity>]
-///If the sign up fails, it returns [Left<Failure>]
-///It also has a method to store the user information in the database
 
 class SignUpUseCases {
   Future<Either<Failure, UserEntity>> executeSignUp(
